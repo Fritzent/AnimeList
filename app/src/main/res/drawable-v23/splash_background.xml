@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/bg_splash_screen"/>
+    <item
+        android:start="24dp"
+        android:end="24dp">
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/ghibli_logo_white" />
+    </item>
+</layer-list>
