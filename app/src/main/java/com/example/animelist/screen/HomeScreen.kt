@@ -37,11 +37,24 @@ import com.example.animelist.navigation.ScreenList
 import com.example.animelist.ui.theme.RobotoCondensed
 import com.google.accompanist.coil.rememberCoilPainter
 import com.google.accompanist.imageloading.ImageLoadState
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
 fun HomeScreen(
     navController: NavController
 ) {
+    /* Change status bar using SystemUiController */
+    val systemUiController = rememberSystemUiController()
+    val useDarkIcons = MaterialTheme.colors.isLight
+
+    /* Handle the status bar change color in side effect */
+    SideEffect {
+        systemUiController.setStatusBarColor(
+            color = Color.Transparent,
+            darkIcons = useDarkIcons
+        )
+    }
+
     Surface(
         color = MaterialTheme.colors.background,
         modifier = Modifier
@@ -179,12 +192,14 @@ fun AnimeEntry(
             .shadow(5.dp, RoundedCornerShape(10.dp))
             .clip(RoundedCornerShape(10.dp))
             .aspectRatio(1f)
-            .background(verticalGradient(
-                listOf(
-                    dominantColor,
-                    defaultDominantColor
+            .background(
+                verticalGradient(
+                    listOf(
+                        dominantColor,
+                        defaultDominantColor
+                    )
                 )
-            ))
+            )
             .clickable {
                 navController.navigate(
                     ScreenList.DetailScreen.route + "/${dominantColor.toArgb()}/${animeDataEntry.animeName}"

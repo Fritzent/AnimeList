@@ -7,12 +7,23 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
 import com.example.animelist.screen.HomeScreen
+import com.example.animelist.screen.LoginScreen
 
 @Composable
 fun NavigationHandler() {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = ScreenList.HomeScreen.route) {
+        composable(
+            route = ScreenList.LoginScreen.route
+        ) {
+            LoginScreen(navController = navController)
+        }
+        composable(
+            route = ScreenList.RegisterScreen.route
+        ) {
+            /* Register Screen here */
+        }
         composable(
             route = ScreenList.HomeScreen.route
         ){
