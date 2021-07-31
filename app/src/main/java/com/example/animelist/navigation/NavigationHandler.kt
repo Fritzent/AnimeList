@@ -13,7 +13,7 @@ import com.example.animelist.screen.LoginScreen
 fun NavigationHandler() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = ScreenList.HomeScreen.route) {
+    NavHost(navController = navController, startDestination = ScreenList.LoginScreen.route) {
         composable(
             route = ScreenList.LoginScreen.route
         ) {
